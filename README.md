@@ -26,7 +26,10 @@ This project implements a **Shift-Left Vulnerability Management** automation scr
                  │
                  ▼
        [Discord/Slack Webhook] ──► Real-time Instant SOC Alert Issued
-✨ Key Features
+```
+
+## ✨ Key Features
+
 Threat-Intel-Driven Prioritization: Bypasses arbitrary CVSS thresholds by identifying vulnerabilities actively being weaponized in the wild.
 
 Automated Data Ingestion: Connects dynamically to the live CISA KEV JSON database feed.
@@ -35,20 +38,28 @@ Context-Aware AI Summarization: Employs LLM integration to automatically transla
 
 Real-Time SOC Communication Channel: Eliminates email delays by using secure webhook integrations to instantly ping operation spaces (Discord/Slack).
 
-🗂️ Repository Structure
+## 🗂️ Repository Structure
+```text 
 Plaintext
 ├── scan_report.csv     # Mock corporate asset/vulnerability inventory
 ├── vuln_alert.py       # Main Python automation script
 ├── .gitignore          # Prevents environment files and keys from leaking
 └── README.md           # Project documentation
-🚀 Prerequisites & Installation
+```
+
+## 🚀 Prerequisites & Installation
+
 1. Clone the Repository
+```text 
 Bash
 git clone [https://github.com/your-username/vuln-alert-automation.git](https://github.com/your-username/vuln-alert-automation.git)
 cd vuln-alert-automation
-2. Set Up a Virtual Environment
-Isolate project dependencies by building a local virtual environment:
+```
 
+2. Set Up a Virtual Environment
+
+Isolate project dependencies by building a local virtual environment:
+```text
 Bash
 # Create the environment
 python -m venv venv
@@ -60,32 +71,42 @@ venv\Scripts\activate
 .\venv\Scripts\Activate.ps1
 # On Mac/Linux:
 source venv/bin/activate
-3. Install Dependencies
-Install the required verified packages inside the virtual environment:
+```
 
+3. Install Dependencies
+
+Install the required verified packages inside the virtual environment:
+```text
 Bash
 pip install requests google-generativeai
-⚙️ Configuration & Usage
+```
+
+## ⚙️ Configuration & Usage
+
 1. Setup Environment Secrets
 Open vuln_alert.py and configure your API tokens and alert routing endpoints:
+ * GEMINI_API_KEY: Obtain a free API key via Google AI Studio.
+ * DISCORD_WEBHOOK_URL: Generate an Incoming Webhook URL within your target Discord/Slack channel integrations panel.
 
-GEMINI_API_KEY: Obtain a free API key via Google AI Studio.
-
-DISCORD_WEBHOOK_URL: Generate an Incoming Webhook URL within your target Discord/Slack channel integrations panel.
-
+```text
 Python
 # --- Configuration Hooks ---
 GEMINI_API_KEY = "YOUR_API_KEY_HERE"
 DISCORD_WEBHOOK_URL = "[https://discord.com/api/webhooks/](https://discord.com/api/webhooks/)..."
 ⚠️ Security Warning: Never commit your live API keys or Webhook URLs to a public GitHub repository. Ensure placeholders are substituted before running a code push.
+```
 
 2. Execute the Script
 Run the automated pipeline from your activated terminal:
-
+```text
 Bash
 python vuln_alert.py
-📊 Expected Output Logs
+```
+
+## 📊 Expected Output Logs
+
 Plaintext
+```text
 [*] Fetching live threat intelligence from CISA KEV database...
 [+] Successfully loaded 1142 actively exploited vulnerabilities.
 
@@ -102,13 +123,18 @@ Plaintext
     [+] Alert successfully delivered to Discord!
 [*] Firing webhook alert for WEB-FRONTEND-02...
     [+] Alert successfully delivered to Discord!
-🔔 Sample Alert Architecture
+```
+
+## 🔔 Sample Alert Architecture
+
 When an active match is located, the operation room receives a structured markdown block containing the target vector and its translated organizational threat summary:
 
 🚨 CRITICAL VULNERABILITY DETECTED 🚨
-Target Host: WEB-FRONTEND-02
-Vulnerability: CVE-2021-44228 (Actively Exploited!)
-Affected Software: Apache Log4j 2.14.0
+
+Target Host: WEB-FRONTEND-02  
+Vulnerability: CVE-2021-44228 (Actively Exploited!)  
+Affected Software: Apache Log4j 2.14.0  
 
 Executive Risk Summary:
+
 This vulnerability allows unauthenticated remote attackers to execute arbitrary code on the target server, potentially leading to complete system takeover. Exploitation could result in data theft, unauthorized network expansion, or significant disruptions to customer-facing web services. Immediate patching or network isolation of the affected host is required to secure corporate data assets.
