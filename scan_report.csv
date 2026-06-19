@@ -1,0 +1,5 @@
+Hostname,Vendor,Product,Version,Detected_CVE
+SRV-EXCHANGE-01,Microsoft,Exchange Server,2019,CVE-2021-34473
+WEB-FRONTEND-02,Apache,Log4j,2.14.0,CVE-2021-44228
+DB-INTERNAL-03,Oracle,MySQL,8.0.21,CVE-2023-12345
+WORKSTATION-04,Google,Chrome,114.0.5735.90,None
