@@ -52,7 +52,7 @@ Plaintext
 1. Clone the Repository
 ```text 
 Bash
-git clone [https://github.com/your-username/vuln-alert-automation.git](https://github.com/your-username/vuln-alert-automation.git)
+git clone https://github.com/Hisoe/vuln-alert-automation.git
 cd vuln-alert-automation
 ```
 
